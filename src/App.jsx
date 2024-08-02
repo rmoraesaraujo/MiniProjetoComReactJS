@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ItemsContainer from './ItemsContainer';
+import AddItemContainer from './AddItemContainer';
 import './App.css';
 
 function App() {
@@ -12,13 +13,16 @@ function App() {
     const novaLista = [...listaDeTarefas];
     const itemIndex = novaLista.indexOf(item);
     novaLista.splice(itemIndex, 1);
-    setTaskList(novaLista)
+    setTaskList(novaLista);
   };
   return (
     <div>
       <h1>Minha lista de tarefas do dia</h1>
-      <h2>Adição de tarefas</h2>
-      <ItemsContainer listaDeTarefas={listaDeTarefas} removerDaLista={removerDaLista}/>
+      <AddItemContainer />
+      <ItemsContainer
+        listaDeTarefas={listaDeTarefas}
+        removerDaLista={removerDaLista}
+      />
     </div>
   );
 }
